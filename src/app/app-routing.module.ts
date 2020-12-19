@@ -49,13 +49,6 @@ const routes: Routes = [
     loadChildren: () =>
       import("./report/report.module").then((m) => m.ReportModule),
   },
-  { 
-    path: 'terminalOperator',
-    loadChildren: () => import('./terminal-operator/terminal-operator.module')
-    .then(m => m.TerminalOperatorModule)
-  },
-  
-  { path: 'staffManagement', loadChildren: () => import('./staff-management/staff-management.module').then(m => m.StaffManagementModule) },
   
 ];
 

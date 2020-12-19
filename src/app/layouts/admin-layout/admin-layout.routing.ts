@@ -6,6 +6,18 @@ import { AdminLayoutComponent } from "./admin-layout.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
-  { path:"terminal", component:AdminLayoutComponent},
   { path: "user-profile", component: UserProfileComponent },
+  
+
+  { 
+    path: 'terminalOperator',
+    loadChildren: () => import('../../terminal-operator/terminal-operator.module')
+    .then(m => m.TerminalOperatorModule)
+  },
+  
+  { path: 'staffManagement',
+   loadChildren: () => import('../../staff-management/staff-management.module')
+   .then(m => m.StaffManagementModule) 
+  },
+  
 ];
