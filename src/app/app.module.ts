@@ -16,6 +16,7 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { MatIconModule } from '@angular/material/icon';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { MatIconModule } from '@angular/material/icon';
     RouterModule,
     AppRoutingModule,
     MatIconModule,
+    MatSelectModule,
     AgmCoreModule.forRoot({
       apiKey: "YOUR_GOOGLE_MAPS_API_KEY",
     }),

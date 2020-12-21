@@ -14,6 +14,8 @@ export class NavbarComponent implements OnInit {
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    port;
+  portList = [{NAME:'JNPT'}, {NAME:'BMCT'},{NAME:'GTI'},{NAME:'NSIGT'},{NAME:'NSICT'}];
 
     constructor(location: Location,  private element: ElementRef, private router: Router) {
       this.location = location;
@@ -33,7 +35,9 @@ export class NavbarComponent implements OnInit {
          }
      });
     }
-
+    refreshPage() {
+        window.location.reload();
+      }
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const body = document.getElementsByTagName('body')[0];
