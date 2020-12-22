@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 import { Chart } from 'chart.js';
-
+import AOS from 'aos';
 @Component({
   selector: 'app-dashboard-terminal',
   templateUrl: './dashboard-terminal.component.html',
@@ -12,6 +12,7 @@ export class DashboardTerminalComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    AOS.init();
     var myChart = new Chart("barGraph", {
       type: "bar",
       data: {

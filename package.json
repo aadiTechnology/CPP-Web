@@ -31,6 +31,7 @@
     "@angular/router": "10.1.4",
     "@angular/service-worker": "10.1.4",
     "ajv": "6.12.5",
+    "aos": "^2.3.4",
     "arrive": "2.4.1",
     "bootstrap": "4.5.2",
     "bootstrap-material-design": "4.1.3",
