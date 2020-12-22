@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/c59564bb-906a-45ac-9b34-2fed570ec0d5/resourceGroups/AadiTech/providers/Microsoft.Web/sites/CPPUI",
+    "appService.deploySubpath": "dist"
+}
