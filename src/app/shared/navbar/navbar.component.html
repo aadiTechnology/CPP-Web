@@ -1,15 +1,15 @@
 <nav
-  class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top"
+  class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top pt-0" 
 >
   <!-- <div class="navbar-wrapper">
   <a class="navbar-brand text-center">{{getTitle()}}</a>
 </div> -->
-<div class="mx-auto">
-  <mat-toolbar>
-    <span>{{getTitle()}}</span>
-  </mat-toolbar>
-</div>
-  <mat-toolbar class="pl-5">
+<div class="col-12 col-sm-12 pl-0 pr-0 ">
+  <mat-toolbar style="background-color: #bad5ef;">
+    <span class="mx-auto">{{getTitle()}}</span>
+  </mat-toolbar> 
+</div><hr class="text-dark" >
+  <mat-toolbar class="pl-5" style="background-color: #bad5ef;">
     <mat-form-field >
       <mat-label>Select Port</mat-label>
       <mat-select>

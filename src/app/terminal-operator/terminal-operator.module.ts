@@ -6,6 +6,7 @@ import { TerminalOperatorComponent } from './terminal-operator.component';
 import { DashboardTerminalComponent } from './component/dashboard-terminal/dashboard-terminal.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [TerminalOperatorComponent, DashboardTerminalComponent],
@@ -13,8 +14,8 @@ import {MatButtonModule} from '@angular/material/button';
     CommonModule,
     TerminalOperatorRoutingModule,
     MatSelectModule,
-    MatButtonModule
-
+    MatButtonModule,
+    HighchartsChartModule,
   ]
 })
 export class TerminalOperatorModule { }
