@@ -18,6 +18,7 @@ import { environment } from "../environments/environment";
 import { MatIconModule } from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import { HighchartsChartModule } from "highcharts-angular";
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -32,6 +33,13 @@ import { HighchartsChartModule } from "highcharts-angular";
     MatIconModule,
     HighchartsChartModule,
     MatSelectModule,
+    ToastrModule.forRoot({
+      timeOut: 5500,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+      countDuplicates: false,
+      progressBar: true,
+    }),
     AgmCoreModule.forRoot({
       apiKey: "YOUR_GOOGLE_MAPS_API_KEY",
     }),

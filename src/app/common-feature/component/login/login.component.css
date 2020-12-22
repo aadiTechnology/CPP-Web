@@ -1,4 +1,13 @@
 .card {
     
     background-color: #ffffffc2;
+    
+    
 }
+
+#divcenter{
+position: fixed;
+top: 50%;
+transform: translate(-0%, -50%);
+}
+

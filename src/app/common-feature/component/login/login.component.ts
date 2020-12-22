@@ -3,6 +3,7 @@ import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
 import { CommonService } from "../../common.service";
 import { User } from "../../entities/user";
+import { ToastrService } from 'ngx-toastr';
 import AOS from "aos";
 @Component({
   selector: "app-login",
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private commonService: CommonService,
+    private toastr: ToastrService,
     ) {
       this.user = new User();
     }
@@ -33,11 +35,11 @@ export class LoginComponent implements OnInit {
             this.router.navigate(["/terminalOperator"]);
           }
         } else {
-          alert(arg.message);
+          this.toastr.error(arg.message, 'Error');
         }
       },
       (err) =>{
-        alert("Something went wrong");
+        this.toastr.error('Something went wrong', 'Error');
       }
      );
     }
