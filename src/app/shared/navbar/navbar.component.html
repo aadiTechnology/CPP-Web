@@ -8,11 +8,13 @@
   <mat-toolbar style="background-color: #bad5ef;">
     <span class="mx-auto">{{getTitle()}}</span>
   </mat-toolbar> 
-</div><hr class="text-dark" >
-  <mat-toolbar class="pl-5" style="background-color: #bad5ef;">
-    <mat-form-field >
+</div>
+<div class="col-12 col-sm-12 pl-0 pr-0 ">
+  <mat-toolbar class="pl-5 font-16 " style="background-color: #bad5ef;">
+    <mat-form-field class="font-16" >
       <mat-label>Select Port</mat-label>
       <mat-select>
+        <mat-option selected>Select Port</mat-option>
         <mat-option *ngFor="let ports of portList">{{ports.NAME}}</mat-option>
       </mat-select>
     </mat-form-field>
@@ -36,7 +38,7 @@
       <span class="navbar-toggler-icon icon-bar"></span>
     </button>
   </mat-toolbar>
-
+</div>
   <div class="collapse navbar-collapse justify-content-end" id="navigation">
     <ul class="navbar-nav">
       <li class="nav-item dropdown">

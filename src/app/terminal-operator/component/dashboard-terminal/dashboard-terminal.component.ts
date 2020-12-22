@@ -46,15 +46,11 @@ export class DashboardTerminalComponent implements OnInit {
       series: [{
           type: 'pie',
           data: [
-              ['20 Feet', 10.0],
-              ['20*20 Feet', 5.0],
-              {
-                  name: '40 Feet',
-                  y: 45.0,
-                  sliced: true,
-                  selected: true
-              },
-              ['ODC', 40.0],
+              ['20 Feet', 10],
+              ['20*20 Feet', 5],
+              ['40 Feet', 45],
+              ['ODC', 40]
+             
           ]
       }]
   };

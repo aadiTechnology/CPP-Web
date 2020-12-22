@@ -33,3 +33,9 @@
   position: absolute;
   width: 260px;
 }
+.font-16{
+  font-size: 16px !important;
+  }
+  mat-toolbar.font-16{
+      font-size: 16px !important;
+  }
