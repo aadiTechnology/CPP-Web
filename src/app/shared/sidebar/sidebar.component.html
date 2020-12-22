@@ -8,7 +8,7 @@
 </div>
 <div class="sidebar-wrapper">
   <div *ngIf="isMobileMenu()">
-    /terminalOperator/terminalDash
+   
     <ul class="nav navbar-nav nav-mobile-menu">
         <!-- <li class="nav-item"> -->
             <!-- <a class="nav-link" href="javascript:void(0)">
@@ -42,14 +42,14 @@
 				</p>
             </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)">
                 <i class="material-icons">Terminal Operator</i>
                 <p>
                     <span class="d-lg-none d-md-block">dashboard</span>
                 </p>
             </a>
-        </li>
+        </li> -->
         <li class="nav-item dropdown">
             <a class="nav-link" href="javascript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="material-icons">description</i>
@@ -59,10 +59,10 @@
                 </p>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Vehicle Parking</a>
-                <a class="dropdown-item" href="#">Vehicle Entry and Exit </a>
-                <a class="dropdown-item" href="#">Waiting Containers</a>
-                <a class="dropdown-item" href="#">Multiple Search Report</a>
+                <a class="dropdown-item" href="#"><i class="material-icons">file_copy</i>Vehicle Parking</a>
+                <a class="dropdown-item" href="#"><i class="material-icons">file_copy</i>Vehicle Entry and Exit </a>
+                <a class="dropdown-item" href="#"><i class="material-icons">file_copy</i>Waiting Containers</a>
+                <a class="dropdown-item" href="#"><i class="material-icons">file_copy</i>Multiple Search Report</a>
                 <!-- <a class="dropdown-item" href="#">Another Notification</a>
                 <a class="dropdown-item" href="#">Another One</a> -->
             </div>
@@ -75,12 +75,14 @@
 				</p>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Add User</a>
-                <a class="dropdown-item" href="#">Edit/Delete User </a>
+                <a class="dropdown-item" href="#"><i class="material-icons">person_add_alt_1</i>Add User</a>
+                <a class="dropdown-item" href="#"><i class="material-icons">person_remove_alt_1
+                </i>Edit/Delete User </a>
                 <!-- <a class="dropdown-item" href="#">Another Notification</a>
                 <a class="dropdown-item" href="#">Another One</a> -->
             </div>
         </li>
+        
 
         <li routerLinkActive=""  class="nav-item">
             <a class="nav-link" routerLink="/user-profile" >
