@@ -17,6 +17,8 @@ import { ServiceWorkerModule } from "@angular/service-worker";
 import { environment } from "../environments/environment";
 import { MatIconModule } from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
+import { HighchartsChartModule } from "highcharts-angular";
+
 
 @NgModule({
   imports: [
@@ -28,6 +30,7 @@ import {MatSelectModule} from '@angular/material/select';
     RouterModule,
     AppRoutingModule,
     MatIconModule,
+    HighchartsChartModule,
     MatSelectModule,
     AgmCoreModule.forRoot({
       apiKey: "YOUR_GOOGLE_MAPS_API_KEY",
