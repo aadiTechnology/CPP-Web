@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
         if (!arg.HasErrors) {
           sessionStorage.setItem("AccessToken", arg.token);
           sessionStorage.setItem("CurrentUser", JSON.stringify(arg));
-          if (arg.role === "Admin") {
+          if (arg.role === "OrganizationStaff") {
             this.router.navigate(["/terminalOperator"]);
           }
         } else {

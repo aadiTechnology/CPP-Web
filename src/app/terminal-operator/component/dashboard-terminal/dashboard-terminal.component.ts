@@ -17,7 +17,11 @@ export class DashboardTerminalComponent implements OnInit {
   barGraph:any;
   paiChart:any;
   constructor() { 
+
+    // piechart
     this.paiChart = {
+        title: {text: 'Occupancy by Vehicle Type'},
+    
       chart: {
           type: 'pie',
           options3d: {
@@ -28,8 +32,7 @@ export class DashboardTerminalComponent implements OnInit {
       }, credits: {
         enabled: false
       },
-      title: {text: ''},
-    
+     
       plotOptions: {
           pie: {
               allowPointSelect: true,
@@ -58,7 +61,12 @@ export class DashboardTerminalComponent implements OnInit {
           ]
       }]
   };
+
+
+//   bargraph
+
   this.barGraph = {
+    title: {text: 'Vehicle Entry v/s Vehicle Exit'},
     chart: {
         type: 'column',
         options3d: {
@@ -86,7 +94,7 @@ export class DashboardTerminalComponent implements OnInit {
     credits: {
       enabled: false
     },
-    title: {text: ''},
+    
 
     plotOptions: {
         column: {

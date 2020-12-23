@@ -1,13 +1,9 @@
 .card {
-    
-    background-color: #ffffffc2;
-    
-    
+  background-color: #ffffffc2;
 }
 
-#divcenter{
-position: fixed;
-top: 50%;
-transform: translate(-0%, -50%);
+#divcenter {
+  width: 100%;
+  top: calc(50% - 200px);
+  position: fixed;
 }
-
