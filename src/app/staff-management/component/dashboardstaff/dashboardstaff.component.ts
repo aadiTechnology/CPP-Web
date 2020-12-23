@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import * as Chartist from 'chartist';
 import { Chart } from 'chart.js';
 
+import * as Chartist from 'chartist';
+import AOS from 'aos';
+import * as Highcharts from 'highcharts';
+import highcharts3D from 'highcharts/highcharts-3d';
+highcharts3D(Highcharts);
 @Component({
   selector: 'app-dashboardstaff',
   templateUrl: './dashboardstaff.component.html',
@@ -9,63 +13,102 @@ import { Chart } from 'chart.js';
 })
 export class DashboardstaffComponent implements OnInit {
   pie: any;
-  constructor() { }
-
-  ngOnInit(): void {
-    var myChart = new Chart("barGraph", {
-      type: "bar",
-      data: {
-        labels: ["05-Dec", "06-Dec", "07-Dec", "08-Dec", "09-Dec", "10-Dec"],
-        datasets: [
-          {
-            type:"bar",
-           
-            data: [444, 256, 165, 70, 156, 265, 356, 543],
-            backgroundColor:"rgba(248, 148, 6, 1)",
-            borderColor: "rgba(248, 148, 6, 1)",
-            fill:false,
-            label: "Vehicle Entry",
-          },
-          {
-            type:"bar",
-            
-            data: [243, 156, 365, 30, 156, 265, 356, 543].reverse() ,
-            backgroundColor:"rgba(1, 152, 117, 1)",
-            borderColor: "rgba(1, 152, 117, 1)",
-            fill:false,
-            label: "Vehicle Exit",
-          }, 
-        ],
+  public label;
+  barGraph:any;
+  paiChart:any;
+  constructor() { 
+    this.paiChart = {
+      chart: {
+          type: 'pie',
+          options3d: {
+              enabled: true,
+              alpha: 45,
+              beta: 0
+          }
+      }, credits: {
+        enabled: false
       },
-      options: {
-       
-        scales: {
-          yAxes: [
-            {
-              ticks: {
-                beginAtZero: true,
+      title: {text: ''},
+    
+      plotOptions: {
+          pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              depth: 35,
+              dataLabels: {
+                  enabled: true,
+                  format: '{point.name}'
               },
-            },
-          ],
-        },
+              showInLegend: true
+
+          }
       },
-    });
-  
-  
-  this.pie = new Chart('pie',{
-    type: 'pie',
-    options: {
-      responsive: true,
+      series: [{
+          type: 'pie',
+          data: [
+              ['20 Feet', 10],
+              ['20*20 Feet', 5],
+              ['40 Feet', 45],
+              ['ODC', 40]
+             
+          ]
+      }]
+  };
+  this.barGraph = {
+    chart: {
+        type: 'column',
+        options3d: {
+            enabled: true,
+            alpha: 15,
+            beta: 15,
+            viewDistance: 25,
+            depth: 40
+        }
     },
-    data: {
-      datasets: [{
-        data: [45,10,5,25].reverse(),
-        backgroundColor: ["red","orange","yellow","purple"],
-        label: 'Dataset 1'
-      }],
-      labels: ["20 feet","20*20 feet","40 feet","ODC"]
-    }
-  })
+    xAxis: {
+        categories: ['17-Dec', '18-Dec', '19-Dec', '20-Dec', '21-Dec','22-Dec'],
+        labels: {
+            skew3d: true,
+            style: {
+                fontSize: '12px'
+            }
+        }
+    },
+
+    yAxis: {
+        allowDecimals: false,
+        min: 0,
+    },
+    credits: {
+      enabled: false
+    },
+    title: {text: ''},
+
+    plotOptions: {
+        column: {
+            stacking: 'normal',
+            depth: 40
+        }
+    },
+    series: [{
+        name: 'Vehicle Entry',
+        data: [5, 3, 4, 7, 2,10],
+        stack: 'Entry'
+    },   {
+        name: 'Vehicle Exit',
+        data: [3, 0, 4, 4, 3],
+        stack: 'Exit'
+    }]
   }
 
+  }
+
+  ngOnInit(): void {
+    Highcharts.chart('barcontainer', this.barGraph);
+    Highcharts.chart('container', this.paiChart);
+    AOS.init();
+    
+    
+    
+}
 }
