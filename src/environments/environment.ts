@@ -4,6 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  api: 'http://localhost:5000/api/',
+  api:'http://jnptdev.azurewebsites.net/api/',
+//api: 'http://localhost:5000/api/',
   production: false
 };

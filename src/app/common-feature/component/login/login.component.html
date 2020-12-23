@@ -24,6 +24,7 @@
                                   [(ngModel)]="user.UserName"
                                   #txtusername="ngModel"
                                   name="txtusername"
+                                  required
                                   >
                                 </mat-form-field>
                               </div>
@@ -35,6 +36,7 @@
                                    [(ngModel)]="user.Password"
                                    #txtpassword="ngModel"
                                    name="txtpassword"
+                                   required
                                    >
                                   <mat-icon  class="material-icons" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                                 </mat-form-field>
