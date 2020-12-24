@@ -12,6 +12,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { RouterModule } from "@angular/router";
 import { LoginLayoutroutes } from "./login-layout-routing.module";
 import { LoginComponent } from "app/common-feature/component/login/login.component";
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [LoginLayoutComponent,LoginComponent],
@@ -26,6 +27,7 @@ import { LoginComponent } from "app/common-feature/component/login/login.compone
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    NgxSpinnerModule,
   ],
 })
 export class LoginLayoutModule {}

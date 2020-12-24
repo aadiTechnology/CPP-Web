@@ -6,8 +6,9 @@ import { CommonFeatureComponent } from "./common-feature.component";
 
 import { FormsModule } from "@angular/forms";
 import { MatIconModule } from '@angular/material/icon';
+import { NgxSpinnerModule } from "ngx-spinner";
 @NgModule({
   declarations: [CommonFeatureComponent],
-  imports: [CommonModule, CommonFeatureRoutingModule,MatIconModule,FormsModule],
+  imports: [CommonModule, CommonFeatureRoutingModule,MatIconModule,FormsModule, NgxSpinnerModule,],
 })
 export class CommonFeatureModule {}

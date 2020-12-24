@@ -1,5 +1,5 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from "@angular/core";
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule, Routes } from "@angular/router";
@@ -19,6 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import { HighchartsChartModule } from "highcharts-angular";
 import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatIconModule,
     HighchartsChartModule,
     MatSelectModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot({
       timeOut: 5500,
       positionClass: 'toast-top-center',
@@ -46,9 +49,11 @@ import { ToastrModule } from 'ngx-toastr';
     ServiceWorkerModule.register("ngsw-worker.js", {
       enabled: environment.production,
     }),
+    NgxSpinnerModule,
   ],
   declarations: [AppComponent, AdminLayoutComponent],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

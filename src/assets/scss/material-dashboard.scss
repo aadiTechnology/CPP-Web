@@ -55,3 +55,8 @@
  @import "core/responsive";
 
 @import "core/angular-modal.scss";
+ngx-spinner {
+    .overlay {
+      background-color: rgb(0 0 0 / 50%) !important;
+    }
+}
