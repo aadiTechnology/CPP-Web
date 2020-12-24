@@ -27,7 +27,7 @@ export class DashboardTerminalComponent implements OnInit {
           options3d: {
               enabled: true,
               alpha: 45,
-              beta: 0
+              beta: 0,
           }
       }, credits: {
         enabled: false
@@ -40,6 +40,8 @@ export class DashboardTerminalComponent implements OnInit {
               depth: 35,
               dataLabels: {
                   enabled: true,
+                  connectorWidth: 1,
+                  distance: 1,
                   format: '{point.name}'
               },
               showInLegend: true
@@ -74,11 +76,11 @@ export class DashboardTerminalComponent implements OnInit {
         }
     },
     xAxis: {
-        categories: ['17-Dec', '18-Dec', '19-Dec', '20-Dec', '21-Dec','22-Dec'],
+        categories: ['17-Dec', '18-Dec', '19-Dec', '20-Dec', '21-Dec','22-Dec','23-Dec'],
         labels: {
             skew3d: true,
             style: {
-                fontSize: '12px'
+                fontSize: '10px'
             }
         }
     },
@@ -95,16 +97,17 @@ export class DashboardTerminalComponent implements OnInit {
     plotOptions: {
         column: {
             stacking: 'normal',
-            depth: 40
+            depth: 40,
+            
         }
     },
     series: [{
         name: 'Vehicle Entry',
-        data: [5, 3, 4, 7, 2,10],
+        data: [5, 3, 4, 7, 2,10,15],
         stack: 'Entry'
     },   {
         name: 'Vehicle Exit',
-        data: [3, 0, 4, 4, 3],
+        data: [3, 0, 4, 4, 3,5,10],
         stack: 'Exit'
     }]
   }

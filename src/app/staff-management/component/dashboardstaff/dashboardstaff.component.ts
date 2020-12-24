@@ -17,19 +17,21 @@ export class DashboardstaffComponent implements OnInit {
   barGraph:any;
   paiChart:any;
   constructor() { 
-    this.paiChart = {
+     // piechart
+     this.paiChart = {
+        title: {text: 'Occupancy by Vehicle Type'},
+    
       chart: {
           type: 'pie',
           options3d: {
               enabled: true,
               alpha: 45,
-              beta: 0
+              beta: 0,
           }
       }, credits: {
         enabled: false
       },
-      title: {text: ''},
-    
+     
       plotOptions: {
           pie: {
               allowPointSelect: true,
@@ -54,7 +56,12 @@ export class DashboardstaffComponent implements OnInit {
           ]
       }]
   };
+
+
+//   bargraph
+
   this.barGraph = {
+    title: {text: 'Vehicle Entry v/s Vehicle Exit'},
     chart: {
         type: 'column',
         options3d: {
@@ -66,7 +73,7 @@ export class DashboardstaffComponent implements OnInit {
         }
     },
     xAxis: {
-        categories: ['17-Dec', '18-Dec', '19-Dec', '20-Dec', '21-Dec','22-Dec'],
+        categories: ['17-Dec', '18-Dec', '19-Dec', '20-Dec', '21-Dec','22-Dec','23-Dec'],
         labels: {
             skew3d: true,
             style: {
@@ -82,7 +89,7 @@ export class DashboardstaffComponent implements OnInit {
     credits: {
       enabled: false
     },
-    title: {text: ''},
+    
 
     plotOptions: {
         column: {
@@ -92,11 +99,11 @@ export class DashboardstaffComponent implements OnInit {
     },
     series: [{
         name: 'Vehicle Entry',
-        data: [5, 3, 4, 7, 2,10],
+        data: [5, 3, 4, 7, 2,10,5],
         stack: 'Entry'
     },   {
         name: 'Vehicle Exit',
-        data: [3, 0, 4, 4, 3],
+        data: [3, 0, 4, 4, 3,8],
         stack: 'Exit'
     }]
   }

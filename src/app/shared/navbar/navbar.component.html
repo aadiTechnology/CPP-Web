@@ -12,10 +12,10 @@
 <div class="col-12 col-sm-12 pl-0 pr-0 ">
   <mat-toolbar class="pl-5 font-16 " style="background-color: #bad5ef;">
     <mat-form-field class="font-16" >
-      <mat-label>Select Port</mat-label>
+      <mat-label><b>Select Port</b></mat-label>
       <mat-select>
         <mat-option selected>Select Port</mat-option>
-        <mat-option *ngFor="let ports of portList">{{ports.NAME}}</mat-option>
+        <mat-option *ngFor="let ports of portList"><strong>{{ports.NAME}}</strong></mat-option>
       </mat-select>
     </mat-form-field>
     <button
@@ -24,7 +24,7 @@
       aria-label="Example icon button with a vertical three dot icon"
       (click)="refreshPage()"
     >
-      <mat-icon>autorenew</mat-icon>
+      <mat-icon><b>autorenew</b></mat-icon>
     </button>
     <button
     mat-icon-button
@@ -32,7 +32,7 @@
       type="button"
       (click)="sidebarToggle()"
     >
-      <span class="sr-only">Toggle navigation</span>
+    <b><span class="sr-only">Toggle navigation</span></b>
       <span class="navbar-toggler-icon icon-bar"></span>
       <span class="navbar-toggler-icon icon-bar"></span>
       <span class="navbar-toggler-icon icon-bar"></span>
