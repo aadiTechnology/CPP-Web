@@ -1,9 +1,8 @@
 <div class="main-content">
-    <div class="container-fluid">
-      
-  <br>
-      
-      <mat-form-field appearance="fill">
+  <div class="container-fluid">
+    <br />
+
+    <!-- <mat-form-field appearance="fill">
         <mat-label> Filter</mat-label>
         <mat-select>
           <mat-option>1 Week</mat-option>
@@ -11,52 +10,46 @@
           <mat-option>3 Months</mat-option>
           <mat-option>6 Months</mat-option>
         </mat-select>
-      </mat-form-field>
-  
-  
-      <div data-aos="zoom-in" data-aos-duration="2500" class="row">
-        <div class="col-md-4">
-          <div  class="card card-chart">
-            <div class="card-header card-header" id="divChart">
-              <div id="barcontainer"></div>
+      </mat-form-field> -->
 
+    <div data-aos="zoom-in" data-aos-duration="2500" class="row">
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header" id="divChart">
+            <div id="barcontainer"></div>
+          </div>
+          <div class="card-body">
+            <!-- <p class="card-category"> -->
+            <!-- <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p> -->
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> updated 4 minutes ago
             </div>
-            <div class="card-body">
-              
-              <!-- <p class="card-category"> -->
-              <!-- <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p> -->
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons">access_time</i> updated 4 minutes ago
+            <button mat-button>
+              <div class="stats text-primary" style="float: right;">
+                View More
               </div>
-              <button mat-button>
-                <div class="stats text-primary" style="float: right;">
-                  View More
-                </div>
-              </button>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card card-chart">
+          <div class="card-header card-header" id="divChart">
+            <div id="container"></div>
+          </div>
+          <div class="card-body">
+            <!-- <p class="card-category">Last Campaign Performance</p> -->
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">access_time</i> updated 4 seconds ago
             </div>
           </div>
         </div>
-        
-        <div class="col-md-4">
-          <div class="card card-chart">
-            <div class="card-header card-header" id="divChart">
-              <div id="container"></div>
-            </div>
-            <div class="card-body">
-             
-              <!-- <p class="card-category">Last Campaign Performance</p> -->
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons">access_time</i> updated 4 seconds ago
-              </div>
-            </div>
-          </div>
-        </div>
-   
       </div>
     </div>
   </div>
-  
+</div>
