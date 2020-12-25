@@ -23,47 +23,7 @@ export class DashboardTerminalComponent implements OnInit {
   constructor(private terminalOperatorService: TerminalOperatorService) {
     this.entryExitDeatails = new Array<GetEntryExist>();
     // piechart
-    this.paiChart = {
-      title: { text: "Occupancy by Vehicle Type" },
-
-      chart: {
-        type: "pie",
-        options3d: {
-          enabled: true,
-          alpha: 45,
-          beta: 0,
-        },
-      },
-      credits: {
-        enabled: false,
-      },
-
-      plotOptions: {
-        pie: {
-          allowPointSelect: true,
-          cursor: "pointer",
-          depth: 35,
-          dataLabels: {
-            enabled: true,
-            connectorWidth: 1,
-            distance: 1,
-            format: "{point.name}",
-          },
-          showInLegend: true,
-        },
-      },
-      series: [
-        {
-          type: "pie",
-          data: [
-            ["20 Feet", 10],
-            ["20*20 Feet", 5],
-            ["40 Feet", 45],
-            ["ODC", 40],
-          ],
-        },
-      ],
-    };
+   
   }
   pagination = {
     PortId: 2,
@@ -78,22 +38,22 @@ export class DashboardTerminalComponent implements OnInit {
     Filter: "null",
   };
   ngOnInit(): void {
-    const currentDate = new Date();
-    const fromDate = moment([
-      currentDate.getFullYear(),
-      currentDate.getMonth(),
-      currentDate.getDay() - 7,
-    ]).format("MM-DD-yyy");
-    const toDate = moment([
-      currentDate.getMonth(),
-      currentDate.getDay(),
-      currentDate.getFullYear(),
-    ]).format("MM-DD-yyy");
-    // this.pagination.FromDate = fromDate;
-    // this.pagination.ToDate = toDate;
-    this.getEntryExit(this.pagination);
+      const currentDate = new Date();
+      const fromDate = moment([
+          currentDate.getFullYear(),
+          currentDate.getMonth(),
+          currentDate.getDay() - 7,
+        ]).format("MM-DD-yyy");
+        const toDate = moment([
+            currentDate.getMonth(),
+            currentDate.getDay(),
+            currentDate.getFullYear(),
+        ]).format("MM-DD-yyy");
+        // this.pagination.FromDate = fromDate;
+        // this.pagination.ToDate = toDate;
+        this.getEntryExit(this.pagination);
+        this.getByVehicalType(this.pagination);
     // Highcharts.chart("barcontainer", this.barGraph);
-    Highcharts.chart("container", this.paiChart);
     AOS.init();
   }
   getEntryExit(data): void {
@@ -163,5 +123,69 @@ export class DashboardTerminalComponent implements OnInit {
       ],
     };
     Highcharts.chart(this.barcontainer.nativeElement, this.barGraph);
+  }
+  createPieChart(data){
+    this.paiChart = {
+        title: { text: "Occupancy by Vehicle Type" },
+  
+        chart: {
+          type: "pie",
+          options3d: {
+            enabled: true,
+            alpha: 45,
+            beta: 0,
+          },
+        },
+        credits: {
+          enabled: false,
+        },
+  
+        plotOptions: {
+          pie: {
+            allowPointSelect: true,
+            cursor: "pointer",
+            depth: 35,
+            dataLabels: {
+              enabled: true,
+              connectorWidth: 1,
+              distance: 1,
+              format: "{point.name}",
+            },
+            showInLegend: true,
+          },
+        },
+        series: [
+          {
+            type: "pie",
+            data:data
+          },
+        ],
+      };
+    Highcharts.chart("container", this.paiChart);
+  }
+  getByVehicalType(data){
+    this.terminalOperatorService.getByVehicalType(data).subscribe((arg) => {
+        if (arg) {
+          if (arg) {
+            arg.records.map(b=>{
+                if(b.type==='1'){
+                    b.type="20 ft"
+                }
+                if(b.type==='2'){
+                    b.type="40 ft"
+                }
+                if(b.type==='3'){
+                    b.type="20*20 ft"
+                }
+                if(b.type==='4'){
+                    b.type="ODC"
+                }
+            })
+              var data=arg.records.map(a=>Object.values(a));
+            this.createPieChart(data);
+          }
+        }
+      });
+  
   }
 }

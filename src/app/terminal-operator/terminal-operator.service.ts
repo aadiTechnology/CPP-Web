@@ -11,4 +11,7 @@ export class TerminalOperatorService {
   getEntryExit(data):any{
     return this.httpService.postAnonymous('Report/GetEntryExist',data);
   }
+  getByVehicalType(data):any{
+    return this.httpService.postAnonymous('Report/GetCheckInCountByVehicalType',data);
+  }
 }
