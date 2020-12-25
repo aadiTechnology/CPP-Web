@@ -77,7 +77,7 @@ export class HttpService {
       .set("Content-Type", "application/json");
     // .set('Access-Control-Expose-Headers', '*');
     return this.httpRequest(
-      this.http.post(environment.api + url, data, {
+      this.http.post(environment.api + url, JSON.stringify(data), {
         headers: headers,
       })
     ).pipe(map((response: any) => response)) as Observable<any>;
@@ -87,12 +87,12 @@ export class HttpService {
     const formData: any = new FormData();
     formData.append("RequestData", JSON.stringify(data));
     const headers = new HttpHeaders()
-      .set("Cache-control", "no-cache")
+      // .set("Cache-control", "no-cache")
       // .set('Cache-control', 'no-store')
       // .set('Expires', '0')
-      //.set('Pragma', 'no-cache')
-      .set("Content-Type", "application/json");
-    // .set('Access-Control-Expose-Headers', '*');
+      // .set("Accept", "*/*")
+      .set("Content-Type", "application/json")
+      // .set("Access-Control-Expose-Headers", "*");
     return this.httpRequest(
       this.http.post(environment.api + url, formData, {
         headers: headers,
