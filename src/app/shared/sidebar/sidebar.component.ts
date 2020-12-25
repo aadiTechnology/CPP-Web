@@ -19,8 +19,10 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
-
-  constructor() {}
+currentUser:any;
+  constructor() {
+   this.currentUser= JSON.parse(sessionStorage.getItem("CurrentUser"));
+  }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter((menuItem) => menuItem);

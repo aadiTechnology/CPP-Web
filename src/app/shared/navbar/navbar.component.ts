@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
     port;
-  portList = [{NAME:'JNPT'}, {NAME:'BMCT'},{NAME:'GTI'},{NAME:'NSIGT'},{NAME:'NSICT'}];
+  portList = [{value:'2',NAME:'JNPT'}, {value:'3',NAME:'BMCT'},{value:'4',NAME:'GTI'},{value:'5',NAME:'NSIGT'},{value:'6',NAME:'NSICT'}];
 
     constructor(location: Location,  private element: ElementRef, private router: Router) {
       this.location = location;

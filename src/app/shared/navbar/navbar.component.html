@@ -14,8 +14,8 @@
     <mat-form-field class="font-16" >
       <mat-label><b>Select Port</b></mat-label>
       <mat-select>
-        <mat-option selected>Select Port</mat-option>
-        <mat-option *ngFor="let ports of portList"><strong>{{ports.NAME}}</strong></mat-option>
+        <mat-option selected>{{portList[0].NAME}}</mat-option>
+        <mat-option *ngFor="let ports of portList" [value]="ports.value"><strong>{{ports.NAME}}</strong></mat-option>
       </mat-select>
     </mat-form-field>
     <button

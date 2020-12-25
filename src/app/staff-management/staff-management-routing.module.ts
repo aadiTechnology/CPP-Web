@@ -4,8 +4,7 @@ import { DashboardstaffComponent } from './component/dashboardstaff/dashboardsta
 
 import { StaffManagementComponent } from './staff-management.component';
 
-const routes: Routes = [{ path: '', component: StaffManagementComponent }];
-
+const routes: Routes = 
 [
   {
      path: '',
