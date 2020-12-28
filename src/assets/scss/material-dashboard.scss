@@ -60,3 +60,8 @@ ngx-spinner {
       background-color: rgb(0 0 0 / 50%) !important;
     }
 }
+
+.cdk-overlay-container {
+  position: fixed;
+  z-index: 99999 !important;
+}

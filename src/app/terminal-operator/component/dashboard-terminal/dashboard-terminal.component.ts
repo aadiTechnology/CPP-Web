@@ -8,6 +8,7 @@ import { GetEntryExist } from "app/terminal-operator/entities/getEntryExit";
 import { TerminalOperatorService } from "app/terminal-operator/terminal-operator.service";
 highcharts3D(Highcharts);
 import * as moment from "moment";
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: "app-dashboard-terminal",
   templateUrl: "./dashboard-terminal.component.html",
@@ -20,11 +21,6 @@ export class DashboardTerminalComponent implements OnInit {
   barGraph: any;
   paiChart: any;
   entryExitDeatails: GetEntryExist[];
-  constructor(private terminalOperatorService: TerminalOperatorService) {
-    this.entryExitDeatails = new Array<GetEntryExist>();
-    // piechart
-   
-  }
   pagination = {
     PortId: 2,
     PageNumber: 0,
@@ -37,26 +33,39 @@ export class DashboardTerminalComponent implements OnInit {
     SortOrder: 1,
     Filter: "null",
   };
-  ngOnInit(): void {
-      const currentDate = new Date();
-      const fromDate = moment([
-          currentDate.getFullYear(),
-          currentDate.getMonth(),
-          currentDate.getDay() - 7,
-        ]).format("MM-DD-yyy");
-        const toDate = moment([
-            currentDate.getMonth(),
-            currentDate.getDay(),
-            currentDate.getFullYear(),
-        ]).format("MM-DD-yyy");
-        // this.pagination.FromDate = fromDate;
-        // this.pagination.ToDate = toDate;
+  constructor(private terminalOperatorService: TerminalOperatorService, private ngxSpinnerService: NgxSpinnerService,) {
+    this.entryExitDeatails = new Array<GetEntryExist>();
+    // piechart.
+    this.terminalOperatorService.getPort().subscribe(e => {
+      if (e.length !== 0) {
+        console.log(e);
+        this.pagination.PortId = e;
         this.getEntryExit(this.pagination);
-        this.getByVehicalType(this.pagination);
+      }
+    })
+
+  }
+  ngOnInit(): void {
+    const currentDate = new Date();
+    const fromDate = moment([
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      currentDate.getDay() - 7,
+    ]).format("MM-DD-yyy");
+    const toDate = moment([
+      currentDate.getMonth(),
+      currentDate.getDay(),
+      currentDate.getFullYear(),
+    ]).format("MM-DD-yyy");
+    // this.pagination.FromDate = fromDate;
+    // this.pagination.ToDate = toDate;
+    this.getEntryExit(this.pagination);
+    this.getByVehicalType(this.pagination);
     // Highcharts.chart("barcontainer", this.barGraph);
     AOS.init();
   }
   getEntryExit(data): void {
+    this.ngxSpinnerService.show();
     this.terminalOperatorService.getEntryExit(data).subscribe((arg) => {
       if (arg) {
         this.entryExitDeatails = arg;
@@ -69,6 +78,8 @@ export class DashboardTerminalComponent implements OnInit {
           this.createBarChart({ categories, entryCount, exitCount });
         }
       }
+    }, err => {
+      this.ngxSpinnerService.hide();
     });
   }
 
@@ -123,69 +134,71 @@ export class DashboardTerminalComponent implements OnInit {
       ],
     };
     Highcharts.chart(this.barcontainer.nativeElement, this.barGraph);
+    this.ngxSpinnerService.hide();
   }
-  createPieChart(data){
+  createPieChart(data) {
     this.paiChart = {
-        title: { text: "Occupancy by Vehicle Type" },
-  
-        chart: {
-          type: "pie",
-          options3d: {
+      title: { text: "Occupancy by Vehicle Type" },
+
+      chart: {
+        type: "pie",
+        options3d: {
+          enabled: true,
+          alpha: 45,
+          beta: 0,
+        },
+      },
+      credits: {
+        enabled: false,
+      },
+
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: "pointer",
+          depth: 35,
+          dataLabels: {
             enabled: true,
-            alpha: 45,
-            beta: 0,
+            connectorWidth: 1,
+            distance: 1,
+            format: "{point.name}",
           },
+          showInLegend: true,
         },
-        credits: {
-          enabled: false,
+      },
+      series: [
+        {
+          type: "pie",
+          data: data
         },
-  
-        plotOptions: {
-          pie: {
-            allowPointSelect: true,
-            cursor: "pointer",
-            depth: 35,
-            dataLabels: {
-              enabled: true,
-              connectorWidth: 1,
-              distance: 1,
-              format: "{point.name}",
-            },
-            showInLegend: true,
-          },
-        },
-        series: [
-          {
-            type: "pie",
-            data:data
-          },
-        ],
-      };
+      ],
+    };
     Highcharts.chart("container", this.paiChart);
+    this.ngxSpinnerService.hide();
   }
-  getByVehicalType(data){
+  getByVehicalType(data) {
     this.terminalOperatorService.getByVehicalType(data).subscribe((arg) => {
+      if (arg) {
         if (arg) {
-          if (arg) {
-            arg.records.map(b=>{
-                if(b.type==='1'){
-                    b.type="20 ft"
-                }
-                if(b.type==='2'){
-                    b.type="40 ft"
-                }
-                if(b.type==='3'){
-                    b.type="20*20 ft"
-                }
-                if(b.type==='4'){
-                    b.type="ODC"
-                }
-            })
-              var data=arg.records.map(a=>Object.values(a));
-            this.createPieChart(data);
-          }
+          arg.records.map(b => {
+            if (b.type === '1') {
+              b.type = "20 ft"
+            }
+            if (b.type === '2') {
+              b.type = "40 ft"
+            }
+            if (b.type === '3') {
+              b.type = "20*20 ft"
+            }
+            if (b.type === '4') {
+              b.type = "ODC"
+            }
+          })
+          var data = arg.records.map(a => Object.values(a));
+          this.createPieChart(data);
         }
-      });
-  
+      }
+    });
+
   }
 }

@@ -10,6 +10,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +21,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    FormsModule
+    
   ],
   declarations: [
     FooterComponent,
