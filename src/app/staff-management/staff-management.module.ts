@@ -7,15 +7,20 @@ import { DashboardstaffComponent } from './component/dashboardstaff/dashboardsta
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { VehicleEntryExitComponent } from './component/vehicle-entry-exit/vehicle-entry-exit.component';
+import { VehiclePrakingComponent } from './component/vehicle-praking/vehicle-praking.component';
+import { WaitingContainerComponent } from './component/waiting-container/waiting-container.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
-  declarations: [StaffManagementComponent, DashboardstaffComponent],
+  declarations: [StaffManagementComponent, DashboardstaffComponent, VehicleEntryExitComponent, VehiclePrakingComponent, WaitingContainerComponent],
   imports: [
     CommonModule,
     StaffManagementRoutingModule,
     MatSelectModule,
     MatButtonModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    MatExpansionModule
   ]
 })
 export class StaffManagementModule { }

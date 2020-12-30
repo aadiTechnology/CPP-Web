@@ -24,8 +24,6 @@ export class DashboardstaffComponent implements OnInit {
     entryExitDeatails: GetEntryExist[];
     constructor(private terminalOperatorService: TerminalOperatorService) {
       this.entryExitDeatails = new Array<GetEntryExist>();
-      // piechart
-     
     }
     pagination = {
       PortId: 2,
@@ -74,6 +72,8 @@ export class DashboardstaffComponent implements OnInit {
       });
     }
   
+
+
     createBarChart(data) {
       this.barGraph = {
         title: { text: "Vehicle Entry v/s Vehicle Exit" },
