@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ContainerHistory } from 'app/staff-management/entities/containerHistory';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { StaffManagementService } from '../../staff-management.service';
+
 
 @Component({
   selector: 'app-waiting-container',
@@ -7,10 +11,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WaitingContainerComponent implements OnInit {
   panelOpenState = false;
+  containerHistory:ContainerHistory[];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(
+    private staffManagementService : StaffManagementService,
+    private ngxSpinnerService: NgxSpinnerService,
+  ) { 
+    this.containerHistory = new Array<ContainerHistory>();
   }
 
+  ngOnInit(): void {
+    this.getConatinerHistory()
+  }
+
+  getConatinerHistory():void{
+    this.staffManagementService.getConatinerHistory().subscribe(
+      (arg) => {
+      if(!arg.HasErrors){
+        this.containerHistory=arg.rows;
+      // alert(JSON.stringify(arg));
+      }
+      else{
+        alert("else Somthing Wrong")
+      }
+    },
+    (err)=>{
+      alert('err  Somthing Wrong')
+    });
+  }
 }

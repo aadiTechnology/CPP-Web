@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vehicle-praking.component.css']
 })
 export class VehiclePrakingComponent implements OnInit {
+  panelOpenState = false;
 
   constructor() { }
 

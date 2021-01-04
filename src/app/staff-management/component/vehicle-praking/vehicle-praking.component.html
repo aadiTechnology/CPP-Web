@@ -1,38 +1,76 @@
-<br>
-<br><br>
-<br>
-<div class="container-fluid">
-  <div class="text-center">
-    <h3>Vehicle Parking</h3>
-  </div>
-  <table class="table table-hover table-responsive">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Receipt</th>
-        <th scope="col">Vehicle No</th>
-        <th scope="col">Destination</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>100129112</td>
-        <td>MH14EX9044</td>
-        <td>******</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>2100129112</td>
-        <td>MH14EX9044</td>
-        <td>******</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>2100129112</td>
-        <td>MH14EX9044</td>
-        <td>******</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+
+<h3 class="heading topmanage">Vehicle Parking</h3>
+
+<mat-accordion>
+  <mat-expansion-panel
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false"
+     >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <p>MH14EX9044</p>
+        
+      </mat-panel-title>
+      <mat-panel-description>
+        <p>Receipt No:</p>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="col-md-12 col-12">
+      <div class="row">
+        <div class="col-6">
+          <b>Destination </b>
+          <p></p>
+        </div>
+
+        <div class="col-6">
+          <b>Container No:</b>
+          <p></p>
+        </div>
+        <div class="col-6">
+          <b>Seal No:</b>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+
+          
+        </div>
+
+        <div class="col-6">
+          <b>CHA No:</b>
+          <p></p>
+        </div>
+
+        <div class="col-6">
+          <b>Shipping Bill No:</b>
+          <p></p>
+        </div>
+        <div class="col-6">
+            <b>Shipping Bill Date:</b>
+            <p></p>
+        </div>
+        <!-- <div class="col-6">
+          <b>Container Type:</b>
+          <p>20</p>
+        </div> -->
+        <div class="col-6">
+          <b>In Time</b>
+          <p></p>
+        </div>
+        <div class="col-6">
+          <b>Out Time:</b>
+          <p></p>
+        </div>
+        <div class="col-6">
+          <b>Parking Time:</b>
+          <p></p>
+        </div>
+        <div class="col-6">
+          <b>Amount (Rs):</b>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+  </mat-accordion>
+    

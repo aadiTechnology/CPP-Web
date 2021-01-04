@@ -14,5 +14,9 @@ export class StaffManagementService {
     return this.httpService.postAnonymous('Report/GetEntryExist', data);
   }
 
+  getConatinerHistory():any{
+    return this.httpService.get('Report/GetContainerHistory');
+  }
+
 
 }
