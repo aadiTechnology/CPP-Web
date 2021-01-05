@@ -11,6 +11,8 @@ import { VehicleEntryExitComponent } from './component/vehicle-entry-exit/vehicl
 import { VehiclePrakingComponent } from './component/vehicle-praking/vehicle-praking.component';
 import { WaitingContainerComponent } from './component/waiting-container/waiting-container.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
 
 @NgModule({
   declarations: [StaffManagementComponent, DashboardstaffComponent, VehicleEntryExitComponent, VehiclePrakingComponent, WaitingContainerComponent],
@@ -20,7 +22,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatSelectModule,
     MatButtonModule,
     HighchartsChartModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatIconModule,
+    MatMenuModule
+    
   ]
 })
 export class StaffManagementModule { }

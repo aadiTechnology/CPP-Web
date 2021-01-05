@@ -21,11 +21,11 @@ export class WaitingContainerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getConatinerHistory()
+    this.getWaitingConatiner()
   }
 
-  getConatinerHistory():void{
-    this.staffManagementService.getConatinerHistory().subscribe(
+  getWaitingConatiner():void{
+    this.staffManagementService.getWaitingConatiner().subscribe(
       (arg) => {
       if(!arg.HasErrors){
         this.containerHistory=arg.rows;
@@ -36,7 +36,7 @@ export class WaitingContainerComponent implements OnInit {
       }
     },
     (err)=>{
-      alert('err  Somthing Wrong')
+      alert('err Somthing Wrong')
     });
   }
 }

@@ -1,76 +1,101 @@
-
-<h3 class="heading topmanage">Vehicle Parking</h3>
-
-<mat-accordion>
-  <mat-expansion-panel
-    (opened)="panelOpenState = true"
-    (closed)="panelOpenState = false"
-     >
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <p>MH14EX9044</p>
-        
-      </mat-panel-title>
-      <mat-panel-description>
-        <p>Receipt No:</p>
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <div class="col-md-12 col-12">
-      <div class="row">
-        <div class="col-6">
-          <b>Destination </b>
-          <p></p>
-        </div>
-
-        <div class="col-6">
-          <b>Container No:</b>
-          <p></p>
-        </div>
-        <div class="col-6">
-          <b>Seal No:</b>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-
+<div class="container topmanage">
+ <div class="row">
+      
+       <div class="col-md-6 col-6">
+        <b class="ml-auto heading">Vehicle Parking</b>
+       </div>
+       <div class="col-md-6 col-6 ">
+        <button class="float-right" mat-icon-button>
+        <mat-icon><b>download</b></mat-icon> &nbsp;
+      </button>
+      
+      <button  class="float-right" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>filter_alt</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span>2 Hr</span>
+        </button>
+        <button mat-menu-item>
+          <span>4 Hr</span>
+        </button>
+        <button mat-menu-item>
+          <span>6 Hr</span>
+        </button>
+      </mat-menu>
+       </div>
+    </div>
+  </div>
+  <mat-accordion>
+    <mat-expansion-panel
+    *ngFor="let VehicleHistory of containerHistory"
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+       >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <p>{{VehicleHistory.vehicleNumber}}</p>
           
-        </div>
-
-        <div class="col-6">
-          <b>CHA No:</b>
-          <p></p>
-        </div>
-
-        <div class="col-6">
-          <b>Shipping Bill No:</b>
-          <p></p>
-        </div>
-        <div class="col-6">
-            <b>Shipping Bill Date:</b>
-            <p></p>
-        </div>
-        <!-- <div class="col-6">
-          <b>Container Type:</b>
-          <p>20</p>
-        </div> -->
-        <div class="col-6">
-          <b>In Time</b>
-          <p></p>
-        </div>
-        <div class="col-6">
-          <b>Out Time:</b>
-          <p></p>
-        </div>
-        <div class="col-6">
-          <b>Parking Time:</b>
-          <p></p>
-        </div>
-        <div class="col-6">
-          <b>Amount (Rs):</b>
-          <p></p>
+        </mat-panel-title>
+        <mat-panel-description>
+          <p> #  {{VehicleHistory.receiptNo}}</p>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="col-md-12 col-12">
+        <div class="row">
+          <div class="col-6">
+            <b>Destination </b>
+            <p>{{VehicleHistory.destination}}</p>
+          </div>
+  
+          <div class="col-6">
+            <b>Container No:</b>
+            <p>{{VehicleHistory.containerNumber}}</p>
+          </div>
+          <div class="col-6">
+            <b>Seal No:</b>
+            <p>{{VehicleHistory.sealNumber1}}</p>
+            <p>{{VehicleHistory.sealNumber2}}</p>
+            <p>{{VehicleHistory.sealNumber3}}</p>
+            <p>{{VehicleHistory.sealNumber4}}</p>
+  
+            
+          </div>
+  
+          <div class="col-6">
+            <b>CHA No:</b>
+            <p>{{VehicleHistory.chaNumber}}</p>
+          </div>
+  
+          <div class="col-6">
+            <b>Shipping No:</b>
+            <p>{{VehicleHistory.shippingBillNumber}}</p>
+          </div>
+          <div class="col-6">
+              <b>Shipping Date:</b>
+              <p>{{VehicleHistory.shippingBillDate | date:'short'}}</p>
+          </div>
+          <!-- <div class="col-6">
+            <b>Container Type:</b>
+            <p>20</p>
+          </div> -->
+          <div class="col-6">
+            <b>In Time</b>
+            <p>{{VehicleHistory.addedOn | date:'short' }}</p>
+          </div>
+          <div class="col-6">
+            <b>Out Time:</b>
+            <p>{{VehicleHistory.checkOutDateTime | date:'short'}}</p>
+          </div>
+          <div class="col-6">
+            <b>Parking Time:</b>
+            <p>{{VehicleHistory.ParkingTime | date:'short'}}</p>
+          </div>
+          <div class="col-6">
+            <b>Amount (Rs):</b>
+            <p>{{VehicleHistory.amount}}</p>
+          </div>
         </div>
       </div>
-    </div>
-  </mat-expansion-panel>
-  </mat-accordion>
-    
+    </mat-expansion-panel>
+    </mat-accordion>

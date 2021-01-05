@@ -18,5 +18,8 @@ export class StaffManagementService {
     return this.httpService.get('Report/GetContainerHistory');
   }
 
+  getWaitingConatiner():any{
+    return this.httpService.get('Report/GetWaitingContainer');
+  }
 
 }

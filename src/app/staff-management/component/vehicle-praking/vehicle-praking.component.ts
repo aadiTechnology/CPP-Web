@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ContainerHistory } from 'app/staff-management/entities/containerHistory';
+import { StaffManagementService } from 'app/staff-management/staff-management.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-vehicle-praking',
@@ -7,10 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VehiclePrakingComponent implements OnInit {
   panelOpenState = false;
+  containerHistory: ContainerHistory[];
 
-  constructor() { }
+  constructor(
+    private staffManagementService : StaffManagementService,
+    private ngxSpinnerService: NgxSpinnerService,
+  ) {
+    this.containerHistory = new Array<ContainerHistory>();
+   }
 
   ngOnInit(): void {
+    this.getConatinerHistory()
+  }
+
+  getConatinerHistory():void{
+    this.staffManagementService.getConatinerHistory().subscribe(
+      (arg) => {
+      if(!arg.HasErrors){
+        this.containerHistory=arg.rows;
+   //   alert(JSON.stringify(arg));
+      }
+      else{
+        alert("else Somthing Wrong")
+      }
+    },
+    (err)=>{
+      alert('err Somthing Wrong')
+    });
   }
 
 }

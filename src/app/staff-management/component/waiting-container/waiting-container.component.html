@@ -1,6 +1,30 @@
-
-<h3 class="heading topmanage">Container History</h3>
-
+<div class="container topmanage">
+  <div class="row">
+       
+        <div class="col-md-6 col-6">
+         <b class="ml-auto heading">Waiting Container</b>
+        </div>
+        <div class="col-md-6 col-6 ">
+         <button class="float-right" mat-icon-button>
+         <mat-icon><b>download</b></mat-icon> &nbsp;
+       </button>
+       <button  class="float-right" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>filter_alt</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span>2 Hr</span>
+        </button>
+        <button mat-menu-item>
+          <span>4 Hr</span>
+        </button>
+        <button mat-menu-item>
+          <span>6 Hr</span>
+        </button>
+      </mat-menu>
+        </div>
+     </div>
+   </div>
 <mat-accordion>
   <mat-expansion-panel
   *ngFor="let VehicleHistory of containerHistory"
@@ -13,7 +37,7 @@
         
       </mat-panel-title>
       <mat-panel-description>
-        <p>Receipt # : {{VehicleHistory.receiptNo}}</p>
+        <p> # {{VehicleHistory.receiptNo}}</p>
       </mat-panel-description>
     </mat-expansion-panel-header>
     <div class="col-md-12 col-12">
