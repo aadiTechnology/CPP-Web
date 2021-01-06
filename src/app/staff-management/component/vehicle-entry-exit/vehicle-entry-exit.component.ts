@@ -11,7 +11,7 @@ import * as moment from "moment";
 export class VehicleEntryExitComponent implements OnInit {
 
   entryExitDeatails: GetEntryExist[];
-  entryexistdetails: any;
+  pagination: any;
   constructor(
     private staffManagementService:StaffManagementService,
   ) {
@@ -44,7 +44,7 @@ export class VehicleEntryExitComponent implements OnInit {
           const entryCount = arg.records.map((x) => x.entryCount);
           const existCount = arg.records.map((x) => x.existCount);
 
-          this.entryexistdetails({ categories,entryCount,existCount})
+          this.pagination({ categories,entryCount,existCount})
          
         }
        

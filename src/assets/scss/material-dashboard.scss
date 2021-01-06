@@ -65,3 +65,18 @@ ngx-spinner {
   position: fixed;
   z-index: 99999 !important;
 }
+
+//Report Vehilce parking & Waiting Container
+
+.mat-expansion-panel-header{
+  height: 105px;
+  }
+  
+ .mat-expansion-panel-header div p
+  {
+  line-height: 5px;
+  }
+  
+  .mat-expansion-panel-header.mat-expanded {
+    height: 98px;
+  }

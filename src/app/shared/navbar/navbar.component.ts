@@ -7,6 +7,7 @@ import {
 } from "@angular/common";
 import { Router } from "@angular/router";
 import { TerminalOperatorService } from "app/terminal-operator/terminal-operator.service";
+import { StaffManagementService } from "app/staff-management/staff-management.service";
 
 @Component({
   selector: "app-navbar",
@@ -31,7 +32,9 @@ export class NavbarComponent implements OnInit {
   constructor(
     location: Location,
     private element: ElementRef,
-    private router: Router, private terminalOperatorService: TerminalOperatorService
+    private router: Router, 
+    private terminalOperatorService: TerminalOperatorService,
+    private staffManagementService : StaffManagementService,
   ) {
     this.location = location;
     this.sidebarVisible = false;
@@ -148,5 +151,6 @@ export class NavbarComponent implements OnInit {
     console.log(event.value);
     this.port = event.value;
     this.terminalOperatorService.setPort(+event.value)
+    this.staffManagementService.setPort(+event.value)
   }
 }

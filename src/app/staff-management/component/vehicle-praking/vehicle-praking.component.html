@@ -32,22 +32,21 @@
       (opened)="panelOpenState = true"
       (closed)="panelOpenState = false"
        >
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <p>{{VehicleHistory.vehicleNumber}}</p>
-          
-        </mat-panel-title>
-        <mat-panel-description>
-          <p> #  {{VehicleHistory.receiptNo}}</p>
-        </mat-panel-description>
+       <mat-expansion-panel-header>
+        <div class="col-md-6">
+         <b>Vehicle No </b> <p>{{VehicleHistory.vehicleNumber}}</p>
+         <b>Destination </b> <p>{{VehicleHistory.destination}}</p>
+        </div>
+        <div class="col-md-6">
+          <b>Reciept No </b>  <p>{{VehicleHistory.receiptNo}}</p>
+        </div>
       </mat-expansion-panel-header>
       <div class="col-md-12 col-12">
         <div class="row">
-          <div class="col-6">
+          <!-- <div class="col-6">
             <b>Destination </b>
             <p>{{VehicleHistory.destination}}</p>
-          </div>
-  
+          </div> -->
           <div class="col-6">
             <b>Container No:</b>
             <p>{{VehicleHistory.containerNumber}}</p>
@@ -58,15 +57,11 @@
             <p>{{VehicleHistory.sealNumber2}}</p>
             <p>{{VehicleHistory.sealNumber3}}</p>
             <p>{{VehicleHistory.sealNumber4}}</p>
-  
-            
           </div>
-  
           <div class="col-6">
             <b>CHA No:</b>
             <p>{{VehicleHistory.chaNumber}}</p>
           </div>
-  
           <div class="col-6">
             <b>Shipping No:</b>
             <p>{{VehicleHistory.shippingBillNumber}}</p>

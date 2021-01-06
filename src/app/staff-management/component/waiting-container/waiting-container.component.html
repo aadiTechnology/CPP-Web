@@ -32,27 +32,27 @@
     (closed)="panelOpenState = false"
      >
     <mat-expansion-panel-header>
-      <mat-panel-title>
-        <p>{{VehicleHistory.vehicleNumber}}</p>
-        
-      </mat-panel-title>
-      <mat-panel-description>
-        <p> # {{VehicleHistory.receiptNo}}</p>
-      </mat-panel-description>
+      <div class="col-md-6">
+       <b>Vehicle No </b> <p>{{VehicleHistory.vehicleNumber}}</p>
+       <b>Destination </b> <p>{{VehicleHistory.destination}}</p>
+      </div>
+      <div class="col-md-6">
+        <b>Reciept No </b>  <p>{{VehicleHistory.receiptNo}}</p>
+      </div>
     </mat-expansion-panel-header>
     <div class="col-md-12 col-12">
       <div class="row">
         <div class="col-6">
-          <b>Destination </b>
-          <p>{{VehicleHistory.destination}}</p>
+          <b>Container type </b>
+          <p>{{VehicleHistory.containerType}}</p>
         </div>
 
         <div class="col-6">
-          <b>Container No:</b>
+          <b>Container No</b>
           <p>{{VehicleHistory.containerNumber}}</p>
         </div>
         <div class="col-6">
-          <b>Seal No:</b>
+          <b>Seal No</b>
           <p>{{VehicleHistory.sealNumber1}}</p>
           <p>{{VehicleHistory.sealNumber2}}</p>
           <p>{{VehicleHistory.sealNumber3}}</p>
@@ -62,16 +62,16 @@
         </div>
 
         <div class="col-6">
-          <b>CHA No:</b>
+          <b>CHA No</b>
           <p>{{VehicleHistory.chaNumber}}</p>
         </div>
 
         <div class="col-6">
-          <b>Shipping Bill No:</b>
+          <b>Shipping Bill No</b>
           <p>{{VehicleHistory.shippingBillNumber}}</p>
         </div>
         <div class="col-6">
-            <b>Shipping Bill Date:</b>
+            <b>Shipping Bill Date</b>
             <p>{{VehicleHistory.shippingBillDate | date:'short'}}</p>
         </div>
         <!-- <div class="col-6">
@@ -83,19 +83,21 @@
           <p>{{VehicleHistory.addedOn | date:'short' }}</p>
         </div>
         <div class="col-6">
-          <b>Out Time:</b>
+          <b>Out Time</b>
           <p>{{VehicleHistory.checkOutDateTime | date:'short'}}</p>
         </div>
         <div class="col-6">
-          <b>Parking Time:</b>
+          <b>Parking Time</b>
           <p></p>
         </div>
         <div class="col-6">
-          <b>Amount (Rs):</b>
+          <b>Amount (Rs)</b>
           <p>{{VehicleHistory.amount}}</p>
         </div>
       </div>
     </div>
   </mat-expansion-panel>
   </mat-accordion>
+
+  
     
