@@ -11,14 +11,8 @@
         <mat-icon>filter_alt</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <span>2 Hr</span>
-        </button>
-        <button mat-menu-item>
-          <span>4 Hr</span>
-        </button>
-        <button mat-menu-item>
-          <span>6 Hr</span>
+        <button mat-menu-item *ngFor="let time of HourFilter">
+          <span>{{time.NAME}}</span>
         </button>
       </mat-menu>
         </div>

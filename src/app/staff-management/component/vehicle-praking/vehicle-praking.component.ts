@@ -22,6 +22,13 @@ export class VehiclePrakingComponent implements OnInit {
   ngOnInit(): void {
     this.getConatinerHistory()
   }
+  
+  HourFilter = [
+    { value: "2"  , NAME: "2 Hr" },
+    { value: "4"  , NAME: "4 Hr" },
+    { value: "6"  , NAME: "6 Hr" },
+    { value: "12" , NAME: "12 Hr" }
+  ];
 
   getConatinerHistory():void{
     this.staffManagementService.getConatinerHistory().subscribe(

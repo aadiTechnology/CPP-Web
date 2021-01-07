@@ -24,12 +24,20 @@ export class WaitingContainerComponent implements OnInit {
     this.getWaitingConatiner()
   }
 
+  HourFilter = [
+    { value: "2", NAME: "2 Hr" },
+    { value: "4", NAME: "4 Hr" },
+    { value: "6", NAME: "6 Hr" },
+    { value: "12",NAME: "12 Hr" },
+    
+  ];
+
   getWaitingConatiner():void{
     this.staffManagementService.getWaitingConatiner().subscribe(
       (arg) => {
       if(!arg.HasErrors){
         this.containerHistory=arg.rows;
-      alert(JSON.stringify(arg));
+     // alert(JSON.stringify(arg));
       }
       else{
         alert("else Somthing Wrong")
