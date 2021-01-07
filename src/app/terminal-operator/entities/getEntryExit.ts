@@ -12,7 +12,6 @@ export class GetEntryExist {
     Filter:string;
      
     constructor(){
-        
         this.PortId=null;
         this.PageNumber=null;
         this.PageSize=null;

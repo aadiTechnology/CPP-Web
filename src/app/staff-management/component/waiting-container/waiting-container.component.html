@@ -1,6 +1,5 @@
 <div class="container topmanage">
   <div class="row">
-       
         <div class="col-md-6 col-6">
          <b class="ml-auto heading">Waiting Container</b>
         </div>
@@ -27,52 +26,52 @@
    </div>
 <mat-accordion>
   <mat-expansion-panel
-  *ngFor="let VehicleHistory of containerHistory"
+  *ngFor="let data of containerHistory"
     (opened)="panelOpenState = true"
     (closed)="panelOpenState = false"
      >
     <mat-expansion-panel-header>
       <div class="col-md-6">
-       <b>Vehicle No </b> <p>{{VehicleHistory.vehicleNumber}}</p>
-       <b>Destination </b> <p>{{VehicleHistory.destination}}</p>
+       <b>Vehicle No </b> <p>{{data.vehicleNumber}}</p>
+       <b>Destination </b> <p>{{data.destination}}</p>
       </div>
       <div class="col-md-6">
-        <b>Reciept No </b>  <p>{{VehicleHistory.receiptNo}}</p>
+        <b>Reciept No </b>  <p>{{data.receiptNo}}</p>
       </div>
     </mat-expansion-panel-header>
     <div class="col-md-12 col-12">
       <div class="row">
         <div class="col-6">
           <b>Container type </b>
-          <p>{{VehicleHistory.containerType}}</p>
+          <p>{{data.containerType}}</p>
         </div>
 
         <div class="col-6">
           <b>Container No</b>
-          <p>{{VehicleHistory.containerNumber}}</p>
+          <p>{{data.containerNumber}}</p>
         </div>
         <div class="col-6">
           <b>Seal No</b>
-          <p>{{VehicleHistory.sealNumber1}}</p>
-          <p>{{VehicleHistory.sealNumber2}}</p>
-          <p>{{VehicleHistory.sealNumber3}}</p>
-          <p>{{VehicleHistory.sealNumber4}}</p>
+          <p>{{data.sealNumber1}}</p>
+          <p>{{data.sealNumber2}}</p>
+          <p>{{data.sealNumber3}}</p>
+          <p>{{data.sealNumber4}}</p>
 
           
         </div>
 
         <div class="col-6">
           <b>CHA No</b>
-          <p>{{VehicleHistory.chaNumber}}</p>
+          <p>{{data.chaNumber}}</p>
         </div>
 
         <div class="col-6">
           <b>Shipping Bill No</b>
-          <p>{{VehicleHistory.shippingBillNumber}}</p>
+          <p>{{data.shippingBillNumber}}</p>
         </div>
         <div class="col-6">
             <b>Shipping Bill Date</b>
-            <p>{{VehicleHistory.shippingBillDate | date:'short'}}</p>
+            <p>{{data.shippingBillDate | date:'short'}}</p>
         </div>
         <!-- <div class="col-6">
           <b>Container Type:</b>
@@ -80,11 +79,11 @@
         </div> -->
         <div class="col-6">
           <b>In Time</b>
-          <p>{{VehicleHistory.addedOn | date:'short' }}</p>
+          <p>{{data.addedOn | date:'short' }}</p>
         </div>
         <div class="col-6">
           <b>Out Time</b>
-          <p>{{VehicleHistory.checkOutDateTime | date:'short'}}</p>
+          <p>{{data.checkOutDateTime | date:'short'}}</p>
         </div>
         <div class="col-6">
           <b>Parking Time</b>
@@ -92,12 +91,16 @@
         </div>
         <div class="col-6">
           <b>Amount (Rs)</b>
-          <p>{{VehicleHistory.amount}}</p>
+          <p>{{data.amount}}</p>
         </div>
       </div>
     </div>
   </mat-expansion-panel>
-  </mat-accordion>
-
   
-    
+  </mat-accordion>
+  
+  <mat-paginator  [length]="100"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>
+  

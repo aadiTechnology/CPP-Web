@@ -29,7 +29,7 @@ export class WaitingContainerComponent implements OnInit {
       (arg) => {
       if(!arg.HasErrors){
         this.containerHistory=arg.rows;
-      // alert(JSON.stringify(arg));
+      alert(JSON.stringify(arg));
       }
       else{
         alert("else Somthing Wrong")

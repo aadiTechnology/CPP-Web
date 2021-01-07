@@ -13,6 +13,7 @@ import { WaitingContainerComponent } from './component/waiting-container/waiting
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [StaffManagementComponent, DashboardstaffComponent, VehicleEntryExitComponent, VehiclePrakingComponent, WaitingContainerComponent],
@@ -24,7 +25,8 @@ import {MatMenuModule} from '@angular/material/menu';
     HighchartsChartModule,
     MatExpansionModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatPaginatorModule
     
   ]
 })
