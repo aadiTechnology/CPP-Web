@@ -14,6 +14,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [StaffManagementComponent, DashboardstaffComponent, VehicleEntryExitComponent, VehiclePrakingComponent, WaitingContainerComponent],
@@ -26,7 +28,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatExpansionModule,
     MatIconModule,
     MatMenuModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule      
     
   ]
 })

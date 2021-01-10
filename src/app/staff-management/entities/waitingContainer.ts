@@ -1,4 +1,4 @@
-export class ContainerHistory {
+export class WaitingContainer {
 
 
     amount: number;
@@ -69,7 +69,6 @@ export class ContainerHistory {
     driverContactNumber :number;
     cutOffDate1 : string;
     cutOffDate2 : string;
-    parkingTime: TimeRanges;
     isCutOffValid :boolean ;
     isGTIContainerApproved : boolean ;
     allowEditingEntry :boolean ;

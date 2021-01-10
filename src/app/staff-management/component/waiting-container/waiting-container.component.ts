@@ -12,12 +12,24 @@ import { StaffManagementService } from '../../staff-management.service';
 export class WaitingContainerComponent implements OnInit {
   panelOpenState = false;
   containerHistory:ContainerHistory[];
-
+  pagination:any;
   constructor(
     private staffManagementService : StaffManagementService,
     private ngxSpinnerService: NgxSpinnerService,
   ) { 
     this.containerHistory = new Array<ContainerHistory>();
+    this.pagination= {
+      PortId: 2,
+      PageNumber: 1,
+      PageSize: 10,
+      FromDate: "01-01-2021",
+      ToDate: "01-07-2021",
+      TotalCount: 0,
+      Records: [],
+      SortBy: "abc",
+      SortOrder: 1,
+      Filter: "null",
+    };
   }
 
   ngOnInit(): void {
@@ -33,10 +45,10 @@ export class WaitingContainerComponent implements OnInit {
   ];
 
   getWaitingConatiner():void{
-    this.staffManagementService.getWaitingConatiner().subscribe(
+    this.staffManagementService.getWaitingConatiner(this.pagination).subscribe(
       (arg) => {
       if(!arg.HasErrors){
-        this.containerHistory=arg.rows;
+        this.containerHistory=arg.records;
      // alert(JSON.stringify(arg));
       }
       else{
@@ -48,3 +60,5 @@ export class WaitingContainerComponent implements OnInit {
     });
   }
 }
+
+

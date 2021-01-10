@@ -10,10 +10,10 @@ export class TerminalOperatorService {
   constructor(private httpService: HttpService) { }
 
   getEntryExit(data): any {
-    return this.httpService.postAnonymous('Report/GetEntryExist', data);
+    return this.httpService.postAnonymous('Dashboard/GetEntryExist', data);
   }
   getByVehicalType(data): any {
-    return this.httpService.postAnonymous('Report/GetCheckInCountByVehicalType', data);
+    return this.httpService.postAnonymous('Dashboard/GetCheckInCountByVehicalType', data);
   }
 
   getPort() {
