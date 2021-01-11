@@ -29,6 +29,9 @@ export class StaffManagementService {
   ExportVehicleData(pagination):any{
     return this.httpService.post('Report/ExportVehicleData',pagination);
   }
+  ExportWaitingContainerData(pagination):any{
+    return this.httpService.post('Report/ExportWaitingContainerData',pagination);
+  }
 
   getWaitingConatiner(pagination):any{ 
     return this.httpService.post('Report/GetWaitingContainer',pagination);

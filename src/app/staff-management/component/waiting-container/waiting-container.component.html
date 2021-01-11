@@ -4,15 +4,24 @@
          <b class="ml-auto heading">Waiting Container</b>
         </div>
         <div class="col-md-6 col-6 ">
-         <button class="float-right" mat-icon-button>
+         <button
+          class="float-right"
+           mat-icon-button 
+           (click)="ExportWaitingContainerData(pagination)"
+           >
          <mat-icon><b>download</b></mat-icon> &nbsp;
        </button>
-       <button  class="float-right" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+       <button  class="float-right" mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>filter_alt</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item *ngFor="let time of HourFilter">
-          <span>{{time.NAME}}</span>
+        <button mat-menu-item 
+        (click)="onHourSelect($event)"
+        mat-menu-item
+        *ngFor="let Hour of HourFilter;let i=index"
+        [value]="Hour.value"
+        >
+          <span>{{Hour.NAME}}</span>
         </button>
       </mat-menu>
         </div>
@@ -92,9 +101,13 @@
   </mat-expansion-panel>
   
   </mat-accordion>
-  
-  <mat-paginator  [length]="100"
-  [pageSize]="10"
-  [pageSizeOptions]="[5, 10, 25, 100]">
+  <mat-paginator
+  #paginator
+  [pageSize]="pagination.pageSize"
+  [pageSizeOptions]="[5, 10, 20]"
+  [showFirstLastButtons]="true"
+  [length]="pagination.totalCount"
+  [pageIndex]="pagination.PageNumber"
+  (page)="pageEvent = onPageChange($event)"
+>
 </mat-paginator>
-  
